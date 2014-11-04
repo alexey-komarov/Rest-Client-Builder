@@ -3,7 +3,7 @@ use warnings;
 
 use Rest::Client::Builder;
 
-package Your::API::Class;
+package Your::API;
 use base qw(Rest::Client::Builder);
 
 use Test::More tests => 6;
@@ -25,7 +25,7 @@ sub request {
 	return sprintf('%s %s %s %s', $method, $path, ($args->{value} ? $args->{value} : 'undef'), $add);
 }
 
-my $api = Your::API::Class->new();
+my $api = Your::API->new();
 
 my $result = $api->resource->get({ value => 1 }, 2);
 ok($result eq 'GET http://hostname/api/resource 1 2', 'get');
