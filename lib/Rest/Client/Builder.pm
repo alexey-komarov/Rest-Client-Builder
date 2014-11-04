@@ -59,33 +59,33 @@ sub AUTOLOAD {
 }
 
 sub get {
-	my ($self, $args) = @_;
-	return $self->{on_request}->('GET', $self->{path}, $args);
+	my $self = shift;
+	return $self->{on_request}->('GET', $self->{path}, @_);
 }
 
 sub post {
-	my ($self, $args) = @_;
-	return $self->{on_request}->('POST', $self->{path}, $args);
+	my $self = shift;
+	return $self->{on_request}->('POST', $self->{path}, @_);
 }
 
 sub put {
-	my ($self, $args) = @_;
-	return $self->{on_request}->('PUT', $self->{path}, $args);
+	my $self = shift;
+	return $self->{on_request}->('PUT', $self->{path}, @_);
 }
 
 sub delete {
-	my ($self, $args) = @_;
-	return $self->{on_request}->('DELETE', $self->{path}, $args);
+	my $self = shift;
+	return $self->{on_request}->('DELETE', $self->{path}, @_);
 }
 
 sub patch {
-	my ($self, $args) = @_;
-	return $self->{on_request}->('PATCH', $self->{path}, $args);
+	my $self = shift;
+	return $self->{on_request}->('PATCH', $self->{path}, @_);
 }
 
 sub head {
-	my ($self, $args) = @_;
-	return $self->{on_request}->('HEAD', $self->{path}, $args);
+	my $self = shift;
+	return $self->{on_request}->('HEAD', $self->{path}, @_);
 }
 
 1;
