@@ -135,7 +135,7 @@ Rest::Client::Builder - Base class to build simple object-oriented REST clients
 	print $api->resource(10)->subresource->alfa->beta->state->put({ value => 1 });
 	# output: PUT http://hostname/api/resource/10/subresource/alfa/beta/state {"value":1}
 
-	print $api->resource(10)->delete->();
+	print $api->resource(10)->delete();
 	# output: DELETE http://hostname/api/resource/10
 
 =head1 METHODS
