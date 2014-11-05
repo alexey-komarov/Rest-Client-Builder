@@ -1,8 +1,6 @@
 use strict;
 use warnings;
 
-use Rest::Client::Builder;
-
 package Your::API;
 use base qw(Rest::Client::Builder);
 
