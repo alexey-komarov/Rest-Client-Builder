@@ -34,10 +34,9 @@ sub _construct {
 
 	unless ($self->{objects}->{$id}) {
 		$self->{objects}->{$id} = bless(Rest::Client::Builder->new($self->{opts}, $path), $class);
+		no strict 'refs';
+		push @{$class . '::ISA'}, 'Rest::Client::Builder';
 	}
-
-	no strict 'refs';
-	push @{$class . '::ISA'}, ref($self);
 
 	return $self->{objects}->{$id};
 }
@@ -182,7 +181,7 @@ You can override any methods of any API object:
 	sub post {
 		my ($self, $args) = (shift, shift);
 		$args->{force} = 1;
-		return Rest::Client::Builder::post($self, $args, @_);
+		return $self->SUPER::post($args, @_);
 	}
 
 	my $api = Your::API->new();

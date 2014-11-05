@@ -25,14 +25,14 @@ package Your::API::resource;
 sub post {
 	my ($self, $args) = (shift, shift);
 	$args->{force} = 1;
-	return Rest::Client::Builder::post($self, $args, @_);
+	return $self->SUPER::post($args, @_);
 }
 
 package Your::API::resource::state;
 sub post {
 	my ($self, $args) = (shift, shift);
 	$args->{force} = 0;
-	return Rest::Client::Builder::post($self, $args, @_);
+	return $self->SUPER::post($args, @_);
 }
 
 package default;
